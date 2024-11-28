@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import ThemeContext from "./ThemeContext";
 
 function App() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Global Theme Switcher</h1>
+      <p>Current Theme: <strong>{theme}</strong></p>
+      <button onClick={toggleTheme}>
+        Switch to {theme === "light" ? "Dark" : "Light"} Mode
+      </button>
     </div>
   );
 }
